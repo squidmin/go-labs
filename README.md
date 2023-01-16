@@ -6,10 +6,6 @@ I use this project to learn Golang.
 
 `go run (script_name).go`
 
-#### Download & install dependencies
-
-`go mod tidy`
-
 ---
 
 #### go.dev "Getting started" tutorial

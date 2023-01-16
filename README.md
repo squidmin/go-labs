@@ -6,7 +6,7 @@ I use this project to learn Golang.
 
 `go run .`
 
-### Install dependencies
+### Download & install dependencies
 
 `go mod tidy`
 

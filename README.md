@@ -4,7 +4,7 @@ I use this project to learn Golang.
 
 #### Run a script
 
-`go run .`
+`go run (script_name).go`
 
 #### Download & install dependencies
 

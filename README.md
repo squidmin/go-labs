@@ -10,6 +10,8 @@ I use this project to learn Golang.
 
 `go mod tidy`
 
+---
+
 #### go.dev "Getting started" tutorial
 
 https://go.dev/doc/tutorial/getting-started

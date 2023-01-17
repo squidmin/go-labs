@@ -17,5 +17,5 @@ func func_name(param_1 type_1, param_2 type_2, ..., param_n type_n) (ret_1 type_
 */
 
 func example() {
-	fmt.Println("Yup")
+	fmt.Printf("Καλημέρα κόσμε; or こんにちは 世界\n")
 }

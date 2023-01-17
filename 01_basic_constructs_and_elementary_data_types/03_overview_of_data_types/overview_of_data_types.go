@@ -8,6 +8,7 @@ func main() {
 
 /**
  * Overview of Data Types
+ *
  * This lesson tells us about the type of data that Go can handle.
  * The following topics are covered:
  * - Types
@@ -39,11 +40,20 @@ type (
 )
 
 /**
- * Conversions
+ * Data type conversions
  */
 
 func coerceType() {
 	var number float32 = 5.2
 	fmt.Println(number)
 	fmt.Println(int(number)) // Print the result of the type cast
+}
+
+/**
+ * Basic string operations
+ */
+func stringOperations() {
+	fmt.Println(len("Hello World")) // len() usage
+	fmt.Println("Hello World"[1])   // String indexing
+	fmt.Println("Hello " + "World") // String concatenation
 }

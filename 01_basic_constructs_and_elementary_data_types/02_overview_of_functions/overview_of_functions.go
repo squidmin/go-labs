@@ -15,7 +15,7 @@ func func_name(param_1 type_1, param_2 type_2, ..., param_n type_n) (ret_1 type_
 */
 
 func example() {
-	fmt.Printf("text")
+	fmt.Printf("text\n")
 }
 
 /*

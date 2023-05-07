@@ -156,6 +156,40 @@ func main() {
 ---
 
 
+### Strings
+
+Go strings are made up of individual bytes, usually one for each character.
+
+(Characters from other languages like Chinese are represented by more than one byte.)
+
+String literals can be created using double quotes ( " ) or back tick ( ` ) characters.
+
+**Double-quoted** strings cannot contain newlines and they allow special escape sequences.
+For example `\n` gets replaced with a newline and `\t` gets replaced with a tab character.
+
+
+#### Code example
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    stringOperations()
+}
+
+func stringOperations() {
+    fmt.Println(len("Hello World")) // len() usage
+    fmt.Println("Hello World"[1])   // String indexing
+    fmt.Println("Hello " + "World") // String concatenation
+}
+```
+
+
+---
+
+
 ### Composite types
 
 `struct`, `array`, `slice`, `map`, `channel`

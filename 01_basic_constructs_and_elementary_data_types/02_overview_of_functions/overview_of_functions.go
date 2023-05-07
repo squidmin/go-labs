@@ -9,3 +9,7 @@ func main() {
 func example() {
 	fmt.Printf("text\n")
 }
+
+func functionName(a int, b bool) (c float32) { // Function types
+	return 2.0
+}

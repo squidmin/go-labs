@@ -22,3 +22,15 @@ func exampleFunction(param_1 type_1, ..., param_n type_n) (ret_1 type_1, ..., re
     ...
 }
 ```
+
+
+---
+
+
+### Function types
+
+```go
+func functionName(a int, b bool) (c float32) {  // Function type is float32.
+    return 2.0
+}
+```

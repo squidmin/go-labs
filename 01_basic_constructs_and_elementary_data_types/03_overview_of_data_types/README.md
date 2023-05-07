@@ -190,6 +190,38 @@ func stringOperations() {
 ---
 
 
+### Booleans
+
+#### Code example
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println(true && true)
+    fmt.Println(true && false)
+    fmt.Println(true || true)
+    fmt.Println(true || false)
+    fmt.Println(!true)
+}
+```
+
+**Output**
+
+```
+true
+false
+true
+true
+false
+```
+
+
+---
+
+
 ### Composite types
 
 `struct`, `array`, `slice`, `map`, `channel`

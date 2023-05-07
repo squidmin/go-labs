@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func demoFloatingPointTypes() {
 	var floatExample1 float32
 	fmt.Println(floatExample1)
 	var floatExample2 float64

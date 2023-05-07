@@ -10,6 +10,6 @@ type (
 	STR string
 )
 
-func main() {
+func demoAliasTypesCustom() {
 	//
 }

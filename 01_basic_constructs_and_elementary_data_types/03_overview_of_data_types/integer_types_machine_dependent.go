@@ -2,11 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
-	printMachineDependentIntegerTypes()
-}
-
-func printMachineDependentIntegerTypes() {
+func demoMachineDependentIntegerTypes() {
 	var unsignedIntExample uint
 	fmt.Println(unsignedIntExample)
 	var signedIntExample int

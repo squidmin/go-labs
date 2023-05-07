@@ -76,7 +76,7 @@ package main
 import "fmt"
 
 func main() {
-	printMachineDependentIntegerTypes()
+    printMachineDependentIntegerTypes()
 }
 
 func printMachineDependentIntegerTypes() {
@@ -147,8 +147,8 @@ func main() {
     var complexExample2 complex128
     fmt.Println(complexExample2)
 	
-	fmt.Println("1.0 + 1.0 = ", 1.0 + 1.0)
-	fmt.Println("1 + 1.0 = ", 1 + 1.0)
+    fmt.Println("1.0 + 1.0 = ", 1.0 + 1.0)
+    fmt.Println("1 + 1.0 = ", 1 + 1.0)
 }
 ```
 

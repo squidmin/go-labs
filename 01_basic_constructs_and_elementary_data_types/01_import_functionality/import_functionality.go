@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	// fmt.Println("Console output using 'fmt' package...")
+	fmt.Println("Console output using 'fmt' package...")
 	fmt.Println(quote.Go())
 }

@@ -1,5 +1,8 @@
 # go-labs
 
+Made with:
+- **GoLand 2022.3.2**
+- **go1.19.5**
 
 ### Module initialization
 

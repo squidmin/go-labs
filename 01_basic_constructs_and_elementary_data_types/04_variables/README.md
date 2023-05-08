@@ -1,5 +1,6 @@
 # Variables
 
+## Syntax
 
 Names must start with a letter and may contain letters, numbers or the underscore (`_`) symbol.
 
@@ -26,5 +27,27 @@ func main() {
     x := 5
     fmt.Println(x)
     // Go is able to infer the type based on the supplied literal value.
+}
+```
+
+
+### Multivalue assignment
+
+#### Code example
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var (
+        a = 5
+        b = 10
+        c = 15
+    )
+    fmt.Println("a ==", a)
+    fmt.Println("b ==", b)
+    fmt.Println("c ==", c)
 }
 ```

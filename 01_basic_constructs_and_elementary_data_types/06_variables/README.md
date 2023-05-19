@@ -1,10 +1,154 @@
 # Variables
 
-## Syntax
+## Introduction
+
+The general form for declaring a variable uses the keyword `var` as:
+
+```go
+var identifier type
+```
+
+Here, `identifier` is the name of the variable and `type` is the type of the variable.
+`type` is written _after_ the `identifier` of the variable, contrary to most older programming languages.
+When a variable is declared, _memory in Go is initialized_, which means it contains the default zero or null value (depending upon its type) automatically.
+
+For example:
+- `0` for `int`
+- `0.0` for `float`
+- `false` for `bool`
+- empty string (`""`) for `string`
+- `nil` for pointer
+- zero-ed `struct`
+- etc.
 
 Names must start with a letter and may contain letters, numbers or the underscore (`_`) symbol.
 
-#### Code example
+
+---
+
+
+### Example 1: Declaring a variable
+
+Run the following program to see how declaring a variable works:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var number int         // Declaring an integer variable
+	fmt.Println(number)    // Printing its value
+	var decision bool      // Declaring a boolean variable
+	fmt.Println(decision)  // Printing its value
+}
+```
+
+You can see that in the above code, we declare a variable `number` of type `int` in the first line of the `main` function.
+As memory is initialized, the default value for `number` is printed, which is `0`.
+Similarly, a variable `decision` of type `bool` is declared, and `false` is printed as its value.
+
+> **Note**: The naming of identifiers for variables follows the _camelCasing_ rules (start with a small letter, and every new part of the word starts with a capital letter).
+> But if the variable has to be exported, it must start with a capital letter.
+
+
+---
+
+
+### Example 2: Assigning values
+
+A variable is assigned a value using the assignment operator (`=`) at compile time.
+A value can also be computed or changed during runtime.
+Declaration and assignment (initialization) can be combined in the general format:
+
+```go
+var identifier type = value
+```
+
+Here, `value` can be:
+- a literal value of type `type`
+- a variable of type `type`
+- an expression that evaluates to type `type`
+
+Run the following program to see how the assignment operator works on variables in Go:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var number int = 5        // Declaring and initializing an integer variable
+	fmt.Println(number)       // Printing its value
+	var decision bool = true  // Declaring and intializing a boolean variable
+	fmt.Println(decision)     // Printing its value
+}
+```
+
+In the above code, we declared a variable `number` of type `int` and initialized it with the value `5`.
+Similarly, a variable `decision` of type `bool` was declared and initialized with the value `true`.
+These initialized values are printed.
+
+
+### Example 3: Assigning values
+
+The Go compiler is intelligent enough to derive the type of a variable from its value dynamically, also called _automatic type inference_ at runtime, so omitting the type of a variable is also a correct syntax.
+
+Here's a program demonstrating automatic type inference:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var number = 5         // Declaring and initializing an integer variable without stating its type
+	fmt.Println(number)    // Printing its value
+	var decision = true    // Declaring and initializing an integer variable without stating its type
+	fmt.Println(decision)  // Printing its value
+}
+```
+
+We declared a variable `number` and a variable `decision` without stating their types explicitly.
+The compiler infers the types, and the result is the same as the previous program in which the types were declared explicitly.
+`5` and `true` are printed.
+
+
+---
+
+
+### Example 4: Short form initialization with `:=` assignment operator
+
+With the type omitted, the keyword `var` is pretty superfluous.
+So we can also write it as:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	number := 5            // Declaring and initializing an integer variable without stating its type
+	fmt.Println(number)    // Printing its value
+	decision := true       // Declaring and initializing an integer variable without stating its type
+	fmt.Println(decision)  // fmt.Println(number)  // Printing its value
+}
+```
+
+Again, the types of `number` and `decision` (`int` and `bool`) are inferred by the compiler.
+This is the preferred form, but it can only be used inside functions, _not_ in package scope.
+The short-form assignment operator (`:=`) effectively makes a new variable; it is also called an _initializing declaration_.
+
+If after the lines above in the same code block, we declare:
+
+```go
+number := 20
+```
+
+This is not allowed. The compiler gives an error: `no new variables`
+
+
+### Example 5: Short form initialization with `:=` assignment operator
 
 ```go
 package main

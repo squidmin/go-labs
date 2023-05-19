@@ -175,7 +175,7 @@ func main() {
 ```
 
 
-### Multivalue assignment
+### Example 6: Multivalue assignment
 
 #### Code example
 
@@ -195,3 +195,79 @@ func main() {
     fmt.Println("c ==", c)
 }
 ```
+
+
+---
+
+
+## Scope of variables
+
+
+This section gives the details on scope of a variable and the difference between value and reference types.
+
+The following topics are covered:
+- Scope of a variable
+  - Global scope
+  - Local scope
+- Printing
+- Value types and reference types
+
+
+### Scope of a variable
+
+<details>
+<summary>Expand</summary>
+
+A variable of any type is only known within a certain range of a program, called the variable's _scope_.
+In a programming language, there are two main types of scopes:
+- Global scope
+- Local scope
+
+#### Global vs. local scope
+
+The scope of the variables declared inside a function is called _local scope_.
+They are only known in that function or "range of code"; the same goes for parameters and return variables of a function.
+
+Mostly, you can think of a scope as a code block (surrounded by `{ }`) in which the variable is declared.
+Run the following program to visualize the concept of scope:
+
+<details>
+<summary>Expand code</summary>
+
+```go
+package main
+
+import "fmt"
+
+var number int = 5  // Number declared outside (global scope).
+
+func main() {
+  fmt.Println("Demo: Scope of a variable")
+  var decision bool = true // Decision declared inside function (local scope).
+  fmt.Println("Original value of number:", number)
+  number = 10
+  fmt.Println("New value of number:", number)
+  fmt.Println("Value of decision:", decision)
+}
+```
+
+**Output**
+
+```
+Demo: Scope of a variable
+Original value of number: 5
+New value of number: 10
+Value of decision: true
+```
+
+</details>
+
+
+Variables with _global scope_ are declared outside any function.
+
+Variables with _local scope_ are declared within an enclosing code block.
+
+Although identifiers have to be unique, an identifier declared in a block may be re-declared in an inner block, but then the redeclared variable takes priority and _shadows_ the outer variable with the same name; if used, care must be taken to avoid subtle errors.
+
+</details>
+

@@ -1,4 +1,4 @@
-package _5_constants
+package main
 
 import "fmt"
 

@@ -9,8 +9,8 @@ var identifier type
 ```
 
 Here, `identifier` is the name of the variable and `type` is the type of the variable.
-`type` is written _after_ the `identifier` of the variable, contrary to most older programming languages.
-When a variable is declared, _memory in Go is initialized_, which means it contains the default zero or null value (depending upon its type) automatically.
+`type` is written _after_ the `identifier` of the variable, unlike most older programming languages.
+When a variable is declared, _memory in Go is initialized_, which means it contains the default zero or null value (depending on its type) automatically.
 
 For example:
 - `0` for `int`
@@ -48,7 +48,7 @@ You can see that in the above code, we declare a variable `number` of type `int`
 As memory is initialized, the default value for `number` is printed, which is `0`.
 Similarly, a variable `decision` of type `bool` is declared, and `false` is printed as its value.
 
-> **Note**: The naming of identifiers for variables follows the _camelCasing_ rules (start with a small letter, and every new part of the word starts with a capital letter).
+> **Note**: The naming of identifiers for variables follows the _camelCasing_ rules (start with a small letter, and each subsequent word in the variable name starts with a capital letter).
 > But if the variable has to be exported, it must start with a capital letter.
 
 
@@ -271,3 +271,12 @@ Although identifiers have to be unique, an identifier declared in a block may be
 
 </details>
 
+
+### Printing
+
+<details>
+<summary>Expand</summary>
+
+
+
+</details>

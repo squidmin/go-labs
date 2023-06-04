@@ -162,3 +162,83 @@ func TestCalcAreaViaTable(t *testing.T) {
 	}
 }
 ```
+
+## Running tests with `go test`
+
+### Running functional tests
+
+Run Go tests by typing `go test`.
+If you want a little more verbose output that lists the tests being run, type:
+
+```shell
+go test -v
+```
+
+The output will look something like:
+
+<img src="img/go_test_cmd_1.png" width="350">
+
+If one of the test cases fails, the output will look something like:
+
+<img src="img/go_test_cmd_2.png" width="350">
+
+
+## Running tests in parallel
+
+Many types of tests can run in parallel.
+This lets you take advantage of modern  multi-core systems to test your code faster.
+Some build systems can even take advantage of multiple machines.
+The key is `testing.T` type's `Run()` and `Parallel()` methods.
+When you call in your test to the `Parallel()` method it will run that test in parallel to other parallel tests.
+
+Let's update our table-driven tests to run in parallel.
+To demonstrate that the tests actually run in parallel we can add an artificial delay.
+Each test case will now become its own sub-test that the test function launches using the `Run()` method.
+This also means that each test case from the table will be represented as an individual item in the output.
+Here is the main loop of the test:
+
+```go
+package basics
+
+import (
+  "testing"
+  "time"
+)
+
+func TestCalcAreaInParallel(t *testing.T) {
+  var tests = []struct {
+    width    int
+    height   int
+    expected   int
+  }{
+    {1, 1, 1},
+    {5, 6, 30},
+    {1, 99, 99},
+    {7, 6, 42},
+  }
+
+  for _, test := range tests {
+    t.Run("", func(tt *testing.T) {
+      tt.Parallel()
+      time.Sleep(time.Second)
+      w := test.width
+      h := test.height
+      r, err := CalcArea(w, h)
+      if err != nil {
+        tt.Errorf("CalcArea(%d, %d) returned an error", w, h)
+      } else if r != test.expected {
+        tt.Errorf("CalcArea(%d, %d) returned %d. Expected %d",
+          w, h, r, test.expected)
+      }
+    })
+  }
+}
+```
+
+```shell
+go test ./12_testing/basics -v
+```
+
+**Output**
+
+<img src="img/go_test_cmd_3.png" width="350">

@@ -277,6 +277,137 @@ Although identifiers have to be unique, an identifier declared in a block may be
 <details>
 <summary>Expand</summary>
 
+We have been using the `Println` function from the `fmt` package so far, to print output to the console.
+This package provides another function, `Printf`, that prints the output on console but has a different format.
+It generally uses a format-string as its first argument:
 
+```
+func Printf(format string, list of variables to be printed)
+```
+
+This `format string` can contain one or more format-specifiers.
+Some common format specifiers are:
+- `%d` specifies format for integral values.
+- `%s` specifies format for string values.
+- `%v` specifies the general default format.
+
+#### Example
+
+```go
+package main
+import "fmt"
+
+var number int = 5  // number declared outside (global scope)
+
+func main() {
+	var decision bool = true  // decision declared inside function (local scope)
+	fmt.Printf("Original value of number: %d\n", number)
+	number = 10
+	fmt.Printf("New value of number: %d\n", number)
+	fmt.Printf("Value of decision: %t\n", decision)
+}
+```
+
+</details>
+
+### Value types and reference types
+
+<details>
+<summary>Expand</summary>
+
+In the Go programming language, understanding the difference between value types and reference types is crucial for efficient memory management and avoiding common pitfalls in your code.
+Let's delve into these concepts with explanations and code examples.
+
+## Value Types
+
+Value types in Go include all the basic types like `int`, `float`, `bool`, `string`, and struct types.
+When you assign a value type to a variable, Go creates a new copy of the value.
+
+### Example: Value Type with `int`
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	a := 5
+	b := a  // a copy of 'a' is assigned to 'b'
+	b = 3  // changing 'b' does not affect 'a'
+	fmt.Println(a, b)  // Outputs: 5 3
+}
+```
+
+In this example, changing `b` does not affect `a` because `b` is a separate copy.
+
+### Example: Value Type with Struct
+
+```go
+package example_programs
+
+import (
+    "fmt"
+)
+
+type Point struct {
+    X, Y int
+}
+
+func main() {
+    p1 := Point{1, 2}
+    p2 := p1
+    p2.X = 10
+    fmt.Println(p1, p2)
+}
+```
+
+## Reference Types
+
+Reference types in Go include slices, maps, channels, interfaces, and pointers.
+Instead of copying the value, these types store a reference (address) to the actual data.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	a := []int{1, 2, 3}
+	b := a  // 'b' references the same array as 'a'
+	b[0] = 4  // changing 'b' also affects 'a'
+	fmt.Println(a, b)  // Outputs: [4 2 3] [4 2 3]
+}
+```
+
+In this example, changing `b` affects `a` because both reference the same underlying array.
+
+### Example: Reference Type with Pointers
+
+```go
+package example_programs
+
+import (
+	"fmt"
+)
+
+type Point struct {
+	X, Y int
+}
+
+func main() {
+	p1 := &Point{1, 2}  // pointer to Point
+	p2 := p1  // 'p2' references the same Point as 'p1'
+	p2.X = 10  // changing 'p2' also affects 'p1'
+	fmt.Println(*p1, *p2)  // Outputs: {10 2} {10 2}
+}
+```
+
+## Conclusion
+
+Understanding the difference between value types and reference types in Go is fundamental for correct data manipulation and memory usage.
+Value types create a new copy of the data, while reference types point to the same underlying data.
+This knowledge helps prevent unexpected side effects and optimize performance in your Go programs.
 
 </details>

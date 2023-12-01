@@ -331,10 +331,10 @@ package main
 import "fmt"
 
 func main() {
-	a := 5
-	b := a  // a copy of 'a' is assigned to 'b'
-	b = 3  // changing 'b' does not affect 'a'
-	fmt.Println(a, b)  // Outputs: 5 3
+    a := 5
+    b := a  // a copy of 'a' is assigned to 'b'
+    b = 3  // changing 'b' does not affect 'a'
+    fmt.Println(a, b)  // Outputs: 5 3
 }
 ```
 
@@ -370,14 +370,14 @@ Instead of copying the value, these types store a reference (address) to the act
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	a := []int{1, 2, 3}
-	b := a  // 'b' references the same array as 'a'
-	b[0] = 4  // changing 'b' also affects 'a'
-	fmt.Println(a, b)  // Outputs: [4 2 3] [4 2 3]
+    a := []int{1, 2, 3}
+    b := a  // 'b' references the same array as 'a'
+    b[0] = 4  // changing 'b' also affects 'a'
+    fmt.Println(a, b)  // Outputs: [4 2 3] [4 2 3]
 }
 ```
 
@@ -389,18 +389,18 @@ In this example, changing `b` affects `a` because both reference the same underl
 package example_programs
 
 import (
-	"fmt"
+    "fmt"
 )
 
 type Point struct {
-	X, Y int
+    X, Y int
 }
 
 func main() {
-	p1 := &Point{1, 2}  // pointer to Point
-	p2 := p1  // 'p2' references the same Point as 'p1'
-	p2.X = 10  // changing 'p2' also affects 'p1'
-	fmt.Println(*p1, *p2)  // Outputs: {10 2} {10 2}
+    p1 := &Point{1, 2}  // pointer to Point
+    p2 := p1  // 'p2' references the same Point as 'p1'
+    p2.X = 10  // changing 'p2' also affects 'p1'
+    fmt.Println(*p1, *p2)  // Outputs: {10 2} {10 2}
 }
 ```
 

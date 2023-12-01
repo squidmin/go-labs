@@ -8,3 +8,7 @@ func demoAliasTypesBuiltIn() {
 	var aliasedSignedInt rune
 	fmt.Println(aliasedSignedInt)
 }
+
+func main() {
+	demoAliasTypesBuiltIn() // Built-in type aliases
+}

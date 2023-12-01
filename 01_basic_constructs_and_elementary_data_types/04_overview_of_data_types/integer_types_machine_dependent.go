@@ -10,3 +10,7 @@ func demoMachineDependentIntegerTypes() {
 	var unsignedIntPtrExample uintptr
 	fmt.Println(unsignedIntPtrExample)
 }
+
+func main() {
+	demoMachineDependentIntegerTypes()
+}

@@ -1,31 +1,44 @@
 # Overview of data types
 
-
 This describes the data types in Go.
 
 The following topics are covered:
 - Types
 - Type conversions
 
-
 ---
 
-
-### Primitive types
+## Primitive types
 
 `int`, `float`, `bool`, `string`
 
-
 ---
 
+## Integer types
 
-### Integer types
+Go has architecture-dependent types such as `int`, `uint`, and `uintptr`.
+They have the appropriate length for the machine on which a program runs.
 
-- `uint8`, `uint16`, `uint32`, `uint64`
-- `int8`, `int16`, `int32`, `int64`
+An `int` is a default signed type, which means it takes a size of 32 bit (4 bytes) on a 32-bit machine and 64 bit (8 bytes) on a 64-bit machine, and the same goes for uint (`unsigned int`).
+Meanwhile, `uintptr` is an unsigned integer large enough to store a bit pattern of any pointer.
 
+The architecture independent types have a fixed size (in bits) indicated by their names.=
 
-#### Code example
+For _signed_ integers:
+
+- `int8` (`-128` to `127`)
+- `int16` (`-32768` to `32767`)
+- `int32` (`−2,147,483,648` to `2,147,483,647`)
+- `int64` (`−9,223,372,036,854,775,808` to `9,223,372,036,854,775,807`)
+
+For _unsigned_ integers:
+
+- `uint8` (with the alias byte, `0` to `255`)
+- `uint16` (`0` to `65,535`)
+- `uint32` (`0` to `4,294,967,295`)
+- `uint64` (`0` to `18,446,744,073,709,551,615`)
+
+#### Code demonstration
 
 ```go
 package main
@@ -57,9 +70,7 @@ func printIntegers() {
 }
 ```
 
-
-### Machine-dependent integer types
-
+## Machine-dependent integer types
 
 There are 3 machine-dependent (e.g., size occupied depends on architecture) integer types:
 
@@ -67,8 +78,7 @@ There are 3 machine-dependent (e.g., size occupied depends on architecture) inte
 - `int`
 - `uintptr`
 
-
-#### Code example
+#### Code demonstration
 
 ```go
 package main
@@ -89,17 +99,49 @@ func printMachineDependentIntegerTypes() {
 }
 ```
 
-
 ---
 
+## Alias types
 
-### Alias types
+In Go, alias types are a way to create a new name for an existing type. They are useful for adding more semantic meaning to your code or for gradual code refactoring.
+Here's a detailed guide on alias types in Go, with code examples.
 
-- `byte` - Same as `uint8`
-- `rune` - Same as `int32`
+### Introduction to Alias Types
 
+An alias type in Go is declared using the `type` keyword, followed by the new type name and the original type.
+The alias type is fully compatible with the original type, meaning values of the alias type can be used wherever the original type is expected and vice versa.
 
-#### Code example
+**Basic Syntax**
+
+```
+type AliasTypeName OriginalType
+```
+
+### The `byte` and `rune` special types
+
+In Go, byte and rune are special types that represent specific kinds of integers, each with its unique purpose and use case.
+
+#### `byte` keyword
+
+The `byte` type is an alias for `uint8`, an unsigned 8-bit integer. It represents an ASCII character.
+
+**Common Usage**
+
+- Primarily used to manipulate individual bytes.
+- Often seen in tasks related to handling raw binary data, byte streams in I/O operations, or processing ASCII character data.
+- Example: Reading files byte by byte, handling binary protocols, or working with ASCII character sets.
+
+#### `rune` keyword 
+
+The `rune` type is an alias for `int32`, a signed 32-bit integer. It represents a Unicode code point.
+
+**Common Usage**
+
+- Used to handle Unicode characters, which may be more than one byte in size.
+- Essential for processing text in various languages and symbols not covered in the ASCII range.
+- Example: Parsing strings in multi-language applications, handling emojis, or working with any Unicode characters.
+
+#### Code examples
 
 ```go
 package main
@@ -112,9 +154,18 @@ func main() {
 }
 ```
 
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var r rune = 'あ'
+    fmt.Println(r) // Outputs: 12354 (Unicode code point for 'あ')
+}
+```
 
 ---
-
 
 ### Floating-point types
 
@@ -152,9 +203,7 @@ func main() {
 }
 ```
 
-
 ---
-
 
 ### Strings
 
@@ -166,7 +215,6 @@ String literals can be created using double quotes ( " ) or back tick ( ` ) char
 
 **Double-quoted** strings cannot contain newlines and they allow special escape sequences.
 For example `\n` gets replaced with a newline and `\t` gets replaced with a tab character.
-
 
 #### Code example
 
@@ -186,9 +234,7 @@ func stringOperations() {
 }
 ```
 
-
 ---
-
 
 ### Booleans
 
@@ -218,17 +264,13 @@ true
 false
 ```
 
-
 ---
-
 
 ### Composite types
 
 `struct`, `array`, `slice`, `map`, `channel`
 
-
 ---
-
 
 ### Interfaces
 

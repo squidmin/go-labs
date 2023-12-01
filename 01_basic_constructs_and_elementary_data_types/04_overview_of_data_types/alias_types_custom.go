@@ -13,3 +13,7 @@ type (
 func demoAliasTypesCustom() {
 	//
 }
+
+func main() {
+	demoAliasTypesCustom()
+}

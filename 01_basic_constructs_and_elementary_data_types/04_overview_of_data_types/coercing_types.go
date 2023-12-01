@@ -7,3 +7,7 @@ func demoCoercingTypes() { // Data type conversions
 	fmt.Println(number)
 	fmt.Println(int(number)) // Print the result of the type cast
 }
+
+func main() {
+	demoCoercingTypes()
+}

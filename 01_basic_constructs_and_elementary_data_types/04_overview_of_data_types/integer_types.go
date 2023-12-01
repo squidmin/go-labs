@@ -30,3 +30,7 @@ func demoIntegerTypes() {
 /**
  * Generally if you are working with integers you should just use the 'int' type.
  */
+
+func main() {
+	demoIntegerTypes()
+}

@@ -7,3 +7,7 @@ func demoStrings() {
 	fmt.Println("Hello World"[1])   // String indexing
 	fmt.Println("Hello " + "World") // String concatenation
 }
+
+func main() {
+	demoStrings()
+}

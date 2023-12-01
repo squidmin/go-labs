@@ -12,3 +12,7 @@ func scopeOfAVariable() {
 	fmt.Println("New value of number:", number)
 	fmt.Println("Value of decision:", decision)
 }
+
+func main() {
+	scopeOfAVariable()
+}

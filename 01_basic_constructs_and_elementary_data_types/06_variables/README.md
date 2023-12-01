@@ -343,7 +343,7 @@ In this example, changing `b` does not affect `a` because `b` is a separate copy
 ### Example: Value Type with Struct
 
 ```go
-package example_programs
+package main
 
 import (
     "fmt"
@@ -386,7 +386,7 @@ In this example, changing `b` affects `a` because both reference the same underl
 ### Example: Reference Type with Pointers
 
 ```go
-package example_programs
+package main
 
 import (
     "fmt"

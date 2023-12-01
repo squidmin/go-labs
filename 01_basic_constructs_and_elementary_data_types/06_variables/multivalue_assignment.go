@@ -12,3 +12,7 @@ func demoMultivalueAssignment() {
 	fmt.Println("b ==", b)
 	fmt.Println("c ==", c)
 }
+
+func main() {
+	demoMultivalueAssignment()
+}

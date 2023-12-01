@@ -1,4 +1,4 @@
-package example_programs
+package main
 
 import (
 	"fmt"

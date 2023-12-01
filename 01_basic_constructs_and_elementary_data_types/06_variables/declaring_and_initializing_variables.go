@@ -25,3 +25,7 @@ func demoDeclaringAndInitializingVariables() {
 	 *   whether with 'var' or the ':=' operator.
 	 */
 }
+
+func main() {
+	demoDeclaringAndInitializingVariables()
+}

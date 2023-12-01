@@ -203,7 +203,7 @@ func main() {
 ## Scope of variables
 
 
-This section gives the details on scope of a variable and the difference between value and reference types.
+This section describes the scope of a variable and the difference between value and reference types.
 
 The following topics are covered:
 - Scope of a variable

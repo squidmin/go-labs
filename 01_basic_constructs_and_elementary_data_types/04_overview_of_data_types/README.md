@@ -99,6 +99,9 @@ func printMachineDependentIntegerTypes() {
 }
 ```
 
+`int` offers the fastest processing speeds.
+The initial (default) value for integers is `0` (floats default to `0.0`).
+
 ---
 
 ## Alias types
@@ -170,16 +173,24 @@ func main() {
 ### Floating-point types
 
 Go has two floating-point types:
+
 - `float32`
 - `float64`
 
 also often referred to as single precision and double precision respectively.
 
-Go also has two additional types for representing complex numbers (e.g., numbers with imaginary parts):
-- `complex64`
-- `complex128`
+![Floating point types](img/floating_point_types.png)
+
+>**Note**: Unlike other languages, a `float` types on its own does not exist in Golang. We have to specify the bits. For example, `float32` or `float64`.
+
+>Go also has two additional types for representing complex numbers (e.g., numbers with imaginary parts):
+>- `complex64`
+>- `complex128`
+
+Float types default to an initial value of `0.0`. A `float32` is reliably accurate to about 7 decimal places, and a `float64` to about 15 decimal places.
 
 Generally you should use `float64` when working with floating-point numbers.
+All the functions of the `math` package expect that type.
 
 #### Code example
 
@@ -202,6 +213,241 @@ func main() {
     fmt.Println("1 + 1.0 = ", 1 + 1.0)
 }
 ```
+
+>Numbers may be denoted in:
+> - Octal notation with a prefix of `0`: _63_ can be written as `077`.
+> - Hexadecimal notation with a prefix of `0x`: _255_ can be written as `0xFF`.
+> - Scentific notation with `e`, which represents the _power of 10_.
+
+### Type mixing
+
+As Go is strongly typed, the mixing of types is not allowed, as in the following program.
+
+```go
+package main
+
+func main() {
+	var a int
+	var b int32
+	a = 15
+	b = a + a // compiler error
+	b = b + 5 // ok: 5 is a constant
+}
+```
+
+The program will give a compiler error: `cannot use a + a (type int) as type int32 in assignment`.
+Note that constants are considered to have no type in Go. The line
+
+```
+b = b + 5
+```
+
+will work fine because 5 is a constant, not a variable. Hence, with constants, mixing is allowed.
+
+Similarly, if we declare two variables as:
+
+```
+var n int16 = 34
+var m int32
+```
+
+and we do
+
+```
+m = n
+```
+
+it will give a compiler error: `cannot use n (type int16) as type int32 in assignment`.
+Because an `int16` cannot be assigned to an `int32`, there is no implicit casting.
+
+In the following program, an explicit conversion is done to avoid this:
+
+```go
+package main
+import "fmt"
+
+func main() {
+	var n int16 = 34
+	var m int32
+	
+	m = int32(n)
+	fmt.Printf("32 bit int is: %d\n", m)
+	fmt.Printf("16 bit int is: %d\n", n)
+}
+```
+
+In the above code, `n` is an `int16` variable, and `m` is an `int32` variable.
+To set the value of `m` equal to `n`, we need explicit type casting because these variables have different types.
+On the line of code that reads
+
+```
+m = int32(n)
+```
+
+casts `n` with a type of `int32` as the data type of `m` is `int32`, not `int16`.
+Then the results are printed.
+
+---
+
+### Format specifiers
+
+In Go (or Golang), format specifiers are placeholders used in formatting strings with the fmt package.
+They allow you to control the output of values within a string by specifying the type and formatting options.
+Format specifiers are usually preceded by a percent sign (`%`) and are followed by a letter that represents the type of value to be formatted, along with optional additional information.
+
+Here are some common Golang format specifiers:
+
+- `%s`: Used for formatting strings. It replaces the specifier with a string.
+- `%d` or `%v`: Used for formatting integers. `%d` is for decimal formatting, while `%v` is for general formatting.
+- `%f`: Used for formatting floating-point numbers (float64).
+- `%t`: Used for formatting boolean values (true or false).
+- `%c`: Used for formatting characters (runes).
+- `%b`: Used for formatting integers in binary (base 2).
+- `%o`: Used for formatting integers in octal (base 8).
+- `%x` or `%X`: Used for formatting integers in hexadecimal (base 16), with `%x` producing lowercase and `%X` producing uppercase letters.
+
+You can also use additional options with format specifiers to control width, precision, and other formatting details.
+For example, `%5d` specifies that an integer should be formatted in a field of at least 5 characters wide.
+The `Printf` or `Sprintf` functions from the `fmt` package are commonly used to format strings with these specifiers.
+
+Example:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	name := "Alice"
+	age := 30
+	fmt.Printf("Name: %s, Age: %d\n", name, age)
+}
+```
+
+In this example, the `%s` and `%d` format specifiers are used to format the `name` and `age` variables within the string.
+When the program is executed, it will replace `%s` with the value of `name` (which is "Alice") and `%d` with the value of `age` (which is 30), resulting in the formatted output: `Name: Alice, Age: 30`.
+
+---
+
+### Random numbers
+
+Some programs, like games or statistical applications, need random numbers.
+The package `math/rand` implements pseudo-random number generators.
+For a simple example, see the following program that prints a random number:
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func main() {
+	a := rand.Int()    // generates a random number
+	b := rand.Intn(8)  // generates a random number in [0, n)
+	fmt.Printf("a is: %d\n", a)
+	fmt.Printf("b is: %d\n", b)
+}
+```
+
+In the above program, you can see that a package `math/rand` is imported to generate random numbers.
+We declare a variable `a`. In `a`, a random value is placed. But if we want to create a random number with a range, we can use the `Intn(n)` function.
+Random values of range: [0, n) (starting from **0** to **n-1**) can be generated.
+So we made a variable `b` and set it as a random number from `0` to `7`, then `a` and `b` are printed, respectively.
+
+---
+
+### Character type
+
+Strictly speaking, this is not a type in Go.
+The characters are a _special case of integers_.
+THe `byte` type is an _alias_ for `uint8`, and this is okay for the traditional ASCII-encoding for characters (1 byte).
+A `byte` type variable is declared as
+
+```
+var ch byte = 65
+```
+
+Single quotes `''` surround a character.
+In the ASCII-table the decimal value for `A` is `65`, and the hexadecimal value is `41`.
+The following are also declarations for the character `A`:
+
+```
+var ch byte = 65
+```
+
+or
+
+```
+var ch byte = '\x41'
+```
+
+`\x` is always followed by exactly two hexadecimal digits. Another possible notation is `\` followed by exactly 3 octal digits, e.g., `\377`.
+
+But there is also support for **Unicode (UTF-8)**. Characters are also called _Unicode code points_, and a Unicode character is represented by an _int_ in memory.
+In the documentation, they are commonly represented as **U+hhhh**, where _h_ is a hexadecimal digit.
+In fact, the type **rune** exists in Go and is an _alias_ for type **int32**.
+To write a Unicode-character in code, preface the hexadecimal value with `\u` or `\U`.
+If 4 bytes are needed for the character, `\U` is used.
+Where `\u` is always followed by exactly _four_ hexadecimal digits and `\U` by _eight_.
+
+Run the following program to see how the _Unicode character_ type works.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var ch1 int = '\u0041'
+	var ch2 int = '\u03B2'
+	var ch3 int = '\U00101234'
+	fmt.Printf("%d - %d - %d\n", ch1, ch2, ch3)  // integer
+	fmt.Printf("%c - %c - %c\n", ch1, ch2, ch3)  // character
+	fmt.Printf("%X - %X - %X\n", ch1, ch2, ch3)  // UTF-8 bytes
+	fmt.Printf("%U - %U - %U", ch1, ch2, ch3)    // UTF-8 code point
+}
+```
+
+The declared characters `ch1` and `ch2` are represented by four bytes because we used `\u`.
+Where `ch3` is represented with eight bytes using `\U`.
+You may have noticed that we print these characters using four different format specifiers:
+
+- `%d`
+- `%c`
+- `%X`
+- `%U`
+
+In format-strings, `%c` is used as a format specifier to show the character.
+Format-specifiers `%v` or `%d` show the integer representing the character, and `%U` outputs the `U+hhhh` notation.
+
+---
+
+### The `unicode` package
+
+The package _unicode_ has some useful functions for testing characters. Suppose we have a character named `ch`.
+The following are some main functions from this package:
+
+- Testing for a letter
+
+  ```
+  unicode.IsLetter(ch)
+  ```
+  
+- Testing for a digit
+
+  ```
+  unicode.IsDigit(ch)
+  ```
+  
+- Testing for a whitespace character
+
+  ```
+  unicode.IsSpace(ch)
+  ```
+  
+These functions return a `bool` value. The `utf8` package further contains functions to work with _runes_.
 
 ---
 

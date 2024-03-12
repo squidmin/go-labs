@@ -150,3 +150,27 @@ Below are some code examples to include in the module, each demonstrating a diff
         FormatterExample()
     }
     ```
+7. Custom Formatting with `fmt.Stringer`
+   ```go
+   package main
+   
+   import "fmt"
+   
+   type Person struct {
+       Name string
+       Age  int
+   }
+   
+   func (p Person) String() string { // Implementing the fmt.Stringer interface
+       return fmt.Sprintf("%s (%d years old)", p.Name, p.Age)
+   }
+   
+   func StringerExample() {
+       person := Person{Name: "Test User", Age: 30}
+       fmt.Println(person)
+   }
+   
+   func main() {
+       StringerExample()
+   }
+   ```

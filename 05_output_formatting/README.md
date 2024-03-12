@@ -3,7 +3,7 @@
 This module aims to provide users with a comprehensive understanding of the various methods available in Go for formatting and printing output.
 Below are some code examples to include in the module, each demonstrating a different aspect of output formatting in Go.
 
-1. Basic Formatting with `fmt.Printf`
+1. Basic Formatting with `fmt.Printf` \
    `fmt.Printf` allows for formatted output according to a format specifier. The following code snippet demonstrates the use of `fmt.Printf` to print a string and an integer.
    ```go
    package main
@@ -20,7 +20,7 @@ Below are some code examples to include in the module, each demonstrating a diff
        PrintfExample()
    }
    ```
-2. Simple Print with `fmt.Println`
+2. Simple Print with `fmt.Println` \
    `fmt.Println` prints its arguments with spaces between them and a newline at the end, without formatting control.
    ```go
    package main
@@ -50,10 +50,10 @@ Below are some code examples to include in the module, each demonstrating a diff
        fmt.Println(SprintfExample())
    }
    ```
-4. Writing Formatted Output to Arbitrary Writers with `fmt.Fprintf`
-   `fmt.Fprintf` formats according to a format specifier and writes to the specified writer.
-   It allows for formatted output to be written to any `io.Writer` interface, not just standard output.
-   The following code snippet demonstrates the use of `fmt.Fprintf` to write formatted output to a file.
+4. Writing Formatted Output to Arbitrary Writers with `fmt.Fprintf` \
+   `fmt.Fprintf` formats according to a format specifier and writes to the specified writer. \
+   It allows for formatted output to be written to any `io.Writer` interface, not just standard output. \
+   The following code snippet demonstrates the use of `fmt.Fprintf` to write formatted output to a file. \
    ```go
    package main
    
@@ -85,7 +85,7 @@ Below are some code examples to include in the module, each demonstrating a diff
        FprintfExample()
    }
    ```
-5. Error Handling with `fmt.Fprintf`
+5. Error Handling with `fmt.Fprintf` \
    Demonstrates checking for errors when using `fmt.Fprintf`.
    ```go
    package main
@@ -114,8 +114,8 @@ Below are some code examples to include in the module, each demonstrating a diff
          }
     }
    ```
-6. Custom Formatting with `fmt.Formatter`
-    `fmt.Formatter` is an interface that allows for custom formatting of types.
+6. Custom Formatting with `fmt.Formatter` \
+    `fmt.Formatter` is an interface that allows for custom formatting of types. \
    The following code snippet demonstrates the use of `fmt.Formatter` to customize the formatting of a custom type.
     ```go
     package main

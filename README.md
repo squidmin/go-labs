@@ -151,7 +151,42 @@ It's particularly relevant when you're ready to deploy your application or share
 To run an installed executable with options:
 
 ```shell
+./executable_name -o --option -k=val --key=value
+```
+
+Or if the executable has been added to your `PATH`:
+
+```shell
 executable_name -o --option -k=val --key=value
+```
+
+</details>
+
+### Build or Run a Specific File
+
+<details>
+<summary>Click to expand</summary>
+
+Use the `-tags` flag with `go build` or `go run`:
+
+```shell
+go build -tags filename .
+```
+
+e.g.,
+
+```shell
+go build -tags arrays ./04_arrays_and_slices/01_declaration_and_initialization/arrays
+```
+
+```shell
+go run -tags filename .
+```
+
+e.g.,
+
+```shell
+go run -tags arrays ./04_arrays_and_slices/01_declaration_and_initialization/arrays
 ```
 
 </details>

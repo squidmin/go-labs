@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func DoubleNumber() {
+func doubleNumber() {
 	fmt.Print("Enter a number: ")
 	var input float64
 	_, err := fmt.Scanf("%f", &input)
@@ -15,5 +15,5 @@ func DoubleNumber() {
 }
 
 func main() {
-	DoubleNumber()
+	doubleNumber()
 }

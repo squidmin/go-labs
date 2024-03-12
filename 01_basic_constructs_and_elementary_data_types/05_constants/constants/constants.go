@@ -1,8 +1,8 @@
-package constants
+package main
 
 import "fmt"
 
-func demoConstantVariables() {
+func main() {
 	fmt.Println("Demo: Constant variables")
 	const message string = "eatid a lemons"
 	fmt.Println(message)

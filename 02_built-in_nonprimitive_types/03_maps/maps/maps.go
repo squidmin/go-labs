@@ -1,4 +1,4 @@
-package maps
+package main
 
 import "fmt"
 
@@ -70,4 +70,11 @@ func mapLookupVerificationExample() {
 	if name, ok := elements["Un"]; ok {
 		fmt.Println(name)
 	}
+}
+
+func main() {
+	mapExample()
+	shorterMapInitialization()
+	compositeMapping()
+	mapLookupVerificationExample()
 }

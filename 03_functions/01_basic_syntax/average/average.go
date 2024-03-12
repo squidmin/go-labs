@@ -1,4 +1,4 @@
-package average
+package main
 
 func average(numbers []float64) (average float64) {
 	total := 0.0
@@ -18,3 +18,7 @@ func average(numbers []float64) (average float64) {
 //	average := total / float64(len(numbers))
 //	return average
 //}
+
+func main() {
+	average([]float64{1, 2, 3, 4, 5})
+}

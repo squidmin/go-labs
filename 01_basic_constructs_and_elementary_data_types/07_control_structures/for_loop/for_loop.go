@@ -1,8 +1,8 @@
-package for_loop
+package main
 
 import "fmt"
 
-func demoForLoop() {
+func main() {
 	fmt.Println("First for loop:")
 	i := 0
 	for i < 10 {

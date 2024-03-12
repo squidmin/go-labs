@@ -1,4 +1,4 @@
-package example
+package main
 
 import (
 	"errors"
@@ -12,4 +12,22 @@ func CalcArea(w, h int) (int, error) {
 		return 0, errors.New(errorMessage)
 	}
 	return w * h, nil
+}
+
+func main() {
+	// Example: 3x4 rectangle
+	area, err := CalcArea(3, 4)
+	if err != nil {
+		println(err)
+	} else {
+		println(area)
+	}
+
+	// Example: 0x4 rectangle
+	area, err = CalcArea(0, 4)
+	if err != nil {
+		println(err)
+	} else {
+		println(area)
+	}
 }

@@ -1,4 +1,4 @@
-package main
+package for_loop
 
 import "fmt"
 

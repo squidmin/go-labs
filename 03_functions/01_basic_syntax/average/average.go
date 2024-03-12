@@ -1,4 +1,4 @@
-package main
+package average
 
 func average(numbers []float64) (average float64) {
 	total := 0.0

@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"go-labs/02_built-in_nonprimitive_types/02_slices/basic_slices"
+)
 
 func main() {
-	slices1()
+	basic_slices.slices1()
 	fmt.Println()
-	slices2()
+	basic_slices.slices2()
 }

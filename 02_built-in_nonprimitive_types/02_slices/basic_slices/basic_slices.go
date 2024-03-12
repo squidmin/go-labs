@@ -1,4 +1,4 @@
-package main
+package basic_slices
 
 import "fmt"
 

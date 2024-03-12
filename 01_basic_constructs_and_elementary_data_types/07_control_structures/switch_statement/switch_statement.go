@@ -1,4 +1,4 @@
-package main
+package switch_statement
 
 import "fmt"
 

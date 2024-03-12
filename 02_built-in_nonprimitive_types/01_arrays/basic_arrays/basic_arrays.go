@@ -56,3 +56,9 @@ func basicArraysDemo3() {
 
 	fmt.Println()
 }
+
+func main() {
+	basicArraysDemo1()
+	basicArraysDemo2()
+	basicArraysDemo3()
+}

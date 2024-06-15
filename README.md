@@ -176,7 +176,7 @@ go build -tags filename .
 e.g.,
 
 ```shell
-go build -tags arrays ./04_arrays_and_slices/01_declaration_and_initialization/arrays
+go build -tags arrays ./05_arrays_and_slices/01_declaration_and_initialization/arrays
 ```
 
 ```shell
@@ -186,7 +186,7 @@ go run -tags filename .
 e.g.,
 
 ```shell
-go run -tags arrays ./04_arrays_and_slices/01_declaration_and_initialization/arrays
+go run -tags arrays ./05_arrays_and_slices/01_declaration_and_initialization/arrays
 ```
 
 </details>

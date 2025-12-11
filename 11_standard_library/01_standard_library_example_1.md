@@ -8,7 +8,7 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	rand "math/rand/v2"
 	"sort"
 	"strings"
 	"time"
@@ -18,7 +18,7 @@ func main() {
 	// ----- fmt: formatted I/O -----
 	name := "Gopher"
 	age := 5
-	fmt.Printf("Hello, %s! You are %d years old.\n", name, age)
+	fmt.Printf("Hello, %s. You are %d years old.\n", name, age)
 
 	// ----- time: working with dates and times -----
 	now := time.Now()
@@ -42,13 +42,11 @@ func main() {
 	fmt.Println("Uppercase:", upper)
 	fmt.Println("Replaced:", replaced)
 
-	// ----- math/rand: random numbers -----
-	// Seed the random generator
-	rand.Seed(time.Now().UnixNano())
+	// ----- math/rand/v2: random number generation -----
+	randomInt := rand.IntN(100)         // 0 <= n < 100
+	randomFloat := rand.Float64()       // 0.0 <= f < 1.0
+	randomIntRange := rand.IntN(10) + 1 // 1..10
 
-	randomInt := rand.Intn(100)            // 0 <= n < 100
-	randomFloat := rand.Float64()          // 0.0 <= f < 1.0
-	randomIntRange := rand.Intn(10) + 1    // 1..10
 	fmt.Println("Random int (0-99):", randomInt)
 	fmt.Println("Random float (0-1):", randomFloat)
 	fmt.Println("Random int (1-10):", randomIntRange)

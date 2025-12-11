@@ -1,3 +1,5 @@
 # Structs and methods
 
+```go
 
+```

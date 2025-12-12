@@ -1,14 +1,13 @@
 # Testing: Basics
 
-Contents:
+### Contents
+
 - The `testing` package
 - Writing tests
   - Writing simple unit tests
   - Writing table-driven tests
 
-
 ---
-
 
 ## The `testing` package
 
@@ -16,15 +15,14 @@ The `testing` package defines types and functions that facilitate writing automa
 The `go test` command fully supports the `testing` package and is designed to run your tests and capture the results.
 
 Here are some of the built-in capabilities of the `testing` package:
+
 - Self-discovery of tests and benchmarks
 - Nested tests and table-driven tests
 - Skipping tests
 - Verified example code
 - Package-level setup and teardown
 
-
 ---
-
 
 ## Writing tests
 
@@ -36,6 +34,7 @@ func TestFoo(t *testing.T) {
 ```
 
 The `testing.T` types that is passed in to your test has various methods that you call to let the testing infrastructure know if the test failed, including:
+
 - format and log error messages
 - skip tests
 - run sub-tests
@@ -49,6 +48,7 @@ func BenchmarkFoo(*testing.B)
 
 The rolw of the `testing.B` type is similar to that of the `testing.T` type.
 It is passed into every benchmark, and it has a slew of functionality that is useful for benchmarking such as:
+
 - reporting memory allocations
 - reporting metrics
 - working with timers
@@ -76,9 +76,7 @@ type TB interface {
 }
 ```
 
-
 ---
-
 
 ## Writing simple unit tests
 
@@ -90,7 +88,7 @@ This lets the `go test` command easily discover all the tests that need to be ru
 
 ### Example
 
-`12_testing/basics/example.go`
+#### `12_testing/basics/example.go`
 
 ```go
 package basics
@@ -110,7 +108,7 @@ func CalcArea(w, h int) (int, error) {
 }
 ```
 
-`12_testing/basics/example_test.go`
+#### `12_testing/basics/example_test.go`
 
 ```go
 package basics
@@ -236,7 +234,7 @@ func TestCalcAreaInParallel(t *testing.T) {
 ```
 
 ```shell
-go test ./12_testing/basics -v
+go test ./13_testing/basics -v
 ```
 
 **Output**

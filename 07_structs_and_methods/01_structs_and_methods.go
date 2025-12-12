@@ -44,12 +44,12 @@ type Employee struct {
 // 4. Methods on structs
 // ------------------------------------------------------------
 
-// Value receiver (does NOT modify original)
+// Greet Value receiver (does NOT modify original)
 func (p Person) Greet() string {
 	return "Hello, my name is " + p.Name
 }
 
-// Pointer receiver (can modify original)
+// Deposit Pointer receiver (can modify original)
 func (a *Account) Deposit(amount float64) {
 	a.Balance += amount
 	a.active = true
@@ -185,6 +185,9 @@ func main() {
 	fmt.Println("JSON:", string(jsonData))
 
 	var decoded Person
-	json.Unmarshal(jsonData, &decoded)
+	err := json.Unmarshal(jsonData, &decoded)
+	if err != nil {
+		return
+	}
 	fmt.Println("Decoded JSON:", decoded)
 }

@@ -1,21 +1,3 @@
-# Pointers
-
-Below is a `.go` file demonstrating the major capabilities and behaviors of pointers in Go, including:
-
-- Declaring pointers
-- Address-of operator `&`
-- Dereferencing `*`
-- Modifying values through pointers
-- Pointer vs value semantics
-- Passing pointers to functions (pointer vs value function arguments)
-- Nil pointers
-- Pointer comparison
-- Pointer to struct
-- Automatic dereferencing of struct pointers
-- Returning pointers from functions
-- Slices and maps as reference types
-
-```go
 // pointers_examples.go
 package main
 
@@ -155,4 +137,3 @@ func main() {
 	fmt.Println("m:", m)
 	fmt.Println("mCopy:", mCopy)
 }
-```

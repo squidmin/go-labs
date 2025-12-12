@@ -234,7 +234,7 @@ func TestCalcAreaInParallel(t *testing.T) {
 ```
 
 ```shell
-go test ./13_testing/basics -v
+go test ./20_testing/basics -v
 ```
 
 **Output**

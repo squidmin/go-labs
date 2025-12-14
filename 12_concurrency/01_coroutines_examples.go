@@ -16,7 +16,6 @@ func worker(id int, jobs <-chan int, results chan<- string, wg *sync.WaitGroup) 
 		// Simulate work taking a random time
 		sleepMs := rand.IntN(500) + 100 // 100–600 ms
 
-		// Correct duration in Go 1.22+
 		time.Sleep(time.Duration(sleepMs) * time.Millisecond)
 
 		results <- fmt.Sprintf("Worker %d processed job %d in %dms", id, job, sleepMs)
